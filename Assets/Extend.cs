@@ -7,42 +7,40 @@ public class Extend : MonoBehaviour
      // Instance variables
     public GameObject blade;
     public float extendSpeed = 0.1f; // Extend/collapse speed
-    private bool weaponActive = true; // Lightsaber state (on/off)
+    private bool weaponActive = true; // Lightsaber state
     private float scaleMin = 0f; // Minimum scale value
-    private float scaleMax; // Maximum scale value (initial y scale of the blade)
+    private float scaleMax; // Maximum scale value 
     private float extendDelta; // Interpolation value for scaling
     private float scaleCurrent; // Current y scale of the lightsaber blade
     private float initialScaleX, initialScaleZ; // Initial local x and z scale values
 
     // Audio variables
-    public AudioClip extendSound; // Sound to play when extending
-    public AudioClip retractSound; // Sound to play when retracting
+    public AudioClip extendSound; 
+    public AudioClip retractSound; 
     private AudioSource audioSource;
 
-    // Initialization
+    
     void Start()
     {
         // Save the initial local x and z scale values
         initialScaleX = transform.localScale.x;
         initialScaleZ = transform.localScale.z;
         
-        // Set the maximum y scale to the current y scale
+        // maximum y scale to the current y scale
         scaleMax = transform.localScale.y;
         
-        // Start with the lightsaber fully extended
+        // Start lightsaber extended
         scaleCurrent = scaleMax;
         
-        // Calculate the initial interpolation value
+        // Calculate interpolation value
         extendDelta = scaleMax / extendSpeed;
         
-        // Set the weapon state to active (on)
+        // Set the weapon state to active 
         weaponActive = true;
 
-        // Initialize the audio source
         audioSource = gameObject.AddComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Toggle lightsaber state on spacebar press
@@ -66,20 +64,19 @@ public class Extend : MonoBehaviour
         if (newWeaponState != weaponActive)
         {
             weaponActive = newWeaponState;
-            blade.SetActive(weaponActive); // Toggle blade rendering based on state
+            blade.SetActive(weaponActive); 
         }
     }
 
-    // Play the correct sound based on the direction of the lightsaber
     private void PlaySound()
     {
         if (extendDelta > 0 && extendSound != null)
         {
-            audioSource.PlayOneShot(extendSound); // Play extend sound
+            audioSource.PlayOneShot(extendSound); 
         }
         else if (extendDelta < 0 && retractSound != null)
         {
-            audioSource.PlayOneShot(retractSound); // Play retract sound
+            audioSource.PlayOneShot(retractSound); 
         }
     }
 }
