@@ -2,6 +2,7 @@
 <img width="733" alt="Screenshot 2024-11-04 at 5 17 06 PM" src="https://github.com/user-attachments/assets/dedfa437-249c-4e6f-9612-80cf6fa90811">
 
 # Lightsaber Demo
+[Video Demo](https://vimeo.com/1026315540?share=copy#t=0)
 ## Customization Added
 * Double Blade Support: Examples of a single and double blade displayed in front of the camera.
 * Blade Swing: Left-click swing blades equipped with a slash sound effect.
